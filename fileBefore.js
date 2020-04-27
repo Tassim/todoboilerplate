@@ -63,11 +63,11 @@ app.post('/api/todos', async (req, res) => {
 
 app.delete('/api/todos/:id', async (req, res) => {
   const { id } = req.params;
-  //should delete a todo with that specific id from params AND
+  // should delete a todo with that specific id from params AND
   const query = 'DELETE FROM todos WHERE ?;';
   try {
     const [response] = await connection.query(query, { id } );
-    //should return to me all of thetodos from the database as a response
+    // should return to me all of thetodos from the database as a response
     const getTodos = 'SELECT * FROM todos;';
     const [todos] = await connection.query(getTodos);
     res.json(todos);
@@ -112,7 +112,7 @@ app.put('/api/todos/:id', async (req, res) => {
   } catch (e) {
     res.status(403).json({ e });
   }
-})
+});
 
 
 
