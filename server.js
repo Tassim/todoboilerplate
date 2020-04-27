@@ -3,7 +3,7 @@ const express = require('express');
 // specify a file name, Node will automatically look for an index.js inside of that folder
 const routes = require('./routes');
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
